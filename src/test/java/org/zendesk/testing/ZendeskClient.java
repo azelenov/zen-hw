@@ -4,11 +4,6 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import org.apache.http.concurrent.FutureCallback;
-import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
-import org.apache.http.nio.protocol.HttpAsyncRequestProducer;
-import org.apache.http.nio.protocol.HttpAsyncResponseConsumer;
-import org.apache.http.protocol.HttpContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,6 +32,15 @@ public class ZendeskClient extends Thread  {
         Unirest.setDefaultHeader("Accept", "application/json");
         Unirest.setDefaultHeader("Content-Type", "application/json");
         Unirest.setConcurrency(2, 2);
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public ZendeskClient setBasePath(String path) {
+        this.url = url + path;
+        return this;
     }
 
     public String getAsync() {
