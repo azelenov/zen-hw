@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "id": "http://example.com/example.json",
+  "properties": {
+    "assignee_id": {
+      "id": "/properties/assignee_id",
+      "type": "integer"
+    },
+    "collaborator_ids": {
+      "id": "/properties/collaborator_ids",
+      "items": {
+        "id": "/properties/collaborator_ids/items",
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "created_at": {
+      "id": "/properties/created_at",
+      "type": "string"
+    },
+    "custom_fields": {
+      "id": "/properties/custom_fields",
+      "items": {
+        "id": "/properties/custom_fields/items",
+        "properties": {
+          "id": {
+            "id": "/properties/custom_fields/items/properties/id",
+            "type": "integer"
+          },
+          "value": {
+            "id": "/properties/custom_fields/items/properties/value",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "description": {
+      "id": "/properties/description",
+      "type": "string"
+    },
+    "due_at": {
+      "id": "/properties/due_at",
+      "type": "null"
+    },
+    "external_id": {
+      "id": "/properties/external_id",
+      "type": "string"
+    },
+    "forum_topic_id": {
+      "id": "/properties/forum_topic_id",
+      "type": "integer"
+    },
+    "group_id": {
+      "id": "/properties/group_id",
+      "type": "integer"
+    },
+    "has_incidents": {
+      "id": "/properties/has_incidents",
+      "type": "boolean"
+    },
+    "id": {
+      "id": "/properties/id",
+      "type": "integer"
+    },
+    "organization_id": {
+      "id": "/properties/organization_id",
+      "type": "integer"
+    },
+    "priority": {
+      "id": "/properties/priority",
+      "type": "string"
+    },
+    "problem_id": {
+      "id": "/properties/problem_id",
+      "type": "integer"
+    },
+    "raw_subject": {
+      "id": "/properties/raw_subject",
+      "type": "string"
+    },
+    "recipient": {
+      "id": "/properties/recipient",
+      "type": "string"
+    },
+    "requester_id": {
+      "id": "/properties/requester_id",
+      "type": "integer"
+    },
+    "satisfaction_rating": {
+      "id": "/properties/satisfaction_rating",
+      "properties": {
+        "comment": {
+          "id": "/properties/satisfaction_rating/properties/comment",
+          "type": "string"
+        },
+        "id": {
+          "id": "/properties/satisfaction_rating/properties/id",
+          "type": "integer"
+        },
+        "score": {
+          "id": "/properties/satisfaction_rating/properties/score",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sharing_agreement_ids": {
+      "id": "/properties/sharing_agreement_ids",
+      "items": {
+        "id": "/properties/sharing_agreement_ids/items",
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "status": {
+      "id": "/properties/status",
+      "type": "string"
+    },
+    "subject": {
+      "id": "/properties/subject",
+      "type": "string"
+    },
+    "submitter_id": {
+      "id": "/properties/submitter_id",
+      "type": "integer"
+    },
+    "tags": {
+      "id": "/properties/tags",
+      "items": {
+        "id": "/properties/tags/items",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "type": {
+      "id": "/properties/type",
+      "type": "string"
+    },
+    "updated_at": {
+      "id": "/properties/updated_at",
+      "type": "string"
+    },
+    "url": {
+      "id": "/properties/url",
+      "type": "string"
+    },
+    "via": {
+      "id": "/properties/via",
+      "properties": {
+        "channel": {
+          "id": "/properties/via/properties/channel",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

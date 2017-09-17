@@ -58,7 +58,7 @@ public class SmokeZenTest {
     @Test
     public void createTicket() {
         String respBody = getClient(config.getProperty("url") + "tickets.json")
-                .postAsync((Helper.readFile("sample_ticket.json")));
+                .postAsync((Helper.readFile("ticket.json")));
         String url = JsonPath.from(respBody).getString("ticket.url");
         getClient(url).getAsync();
     }
@@ -66,7 +66,7 @@ public class SmokeZenTest {
     @Test
     public void updateTicket() {
         String respBody = getClient(config.getProperty("url") + "tickets.json")
-                .postAsync(Helper.readFile("sample_ticket.json"));
+                .postAsync(Helper.readFile("ticket.json"));
         String url = JsonPath.from(respBody).getString("ticket.url");
         getClient(url).getAsync();
         getClient(url).put(Helper.readFile("updated_ticket.json"));
@@ -76,7 +76,7 @@ public class SmokeZenTest {
     @Test
     public void deleteTicket() {
         String respBody = getClient(config.getProperty("url") + "tickets.json")
-                .postAsync((Helper.readFile("sample_ticket.json")));
+                .postAsync((Helper.readFile("ticket.json")));
         String url = JsonPath.from(respBody).getString("ticket.url");
         getClient(url).get();
         getClient(url).delete();

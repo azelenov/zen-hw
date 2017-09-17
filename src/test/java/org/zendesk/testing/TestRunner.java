@@ -12,7 +12,7 @@ import java.util.List;
  * Test runner for Zucchini test
  */
 @CucumberOptions(
-        features = { "src/test/resources" },
+        features = { "src/test/resources/feature" },
         glue = { "org.zendesk.testing" }
 )
 public class TestRunner extends AbstractZucchiniTest {

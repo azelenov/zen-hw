@@ -32,13 +32,13 @@ public class Helper {
 
 
     public static Properties readConfigFile(String path) {
-        if (!path.isEmpty()) {
+        if (path != null && !path.isEmpty()) {
             config = new Properties();
-            InputStream is = Helper.getResourceAsStream("/" + path);
+            InputStream is = Helper.getResourceAsStream("/user/" + path);
             try {
                 config.load(is);
-            } catch (IOException e) {
-                throw new RuntimeException("Can't load user settings file" + e);
+            } catch (IOException | NullPointerException e) {
+                throw new RuntimeException("Can't load user settings file " + e);
             }
         }
         else {
