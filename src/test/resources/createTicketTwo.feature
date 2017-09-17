@@ -6,5 +6,5 @@ Feature: Creating a ticket through API
     Given Zendesk API is accessible
 
 
-  Scenario: Create ticket basic test
+  Scenario: Create ticket basic test two
     When I create new ticket

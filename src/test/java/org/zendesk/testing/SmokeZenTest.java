@@ -1,20 +1,19 @@
 package org.zendesk.testing;
 
-import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.Unirest;
-import net.minidev.json.JSONArray;
+import io.restassured.path.json.JsonPath;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assume.assumeThat;
-import com.jayway.jsonpath.JsonPath;
 
 
 /**
@@ -25,6 +24,7 @@ import com.jayway.jsonpath.JsonPath;
  * 3. Verify you are able to list all tickets for your Zendesk +
  * 4. Verify you are able to delete a ticket+
  */
+@Ignore
 public class SmokeZenTest {
 
     private ZendeskClient instance;
@@ -59,7 +59,7 @@ public class SmokeZenTest {
     public void createTicket() {
         String respBody = getClient(config.getProperty("url") + "tickets.json")
                 .postAsync((Helper.readFile("ticket.json")));
-        String url = JsonPath.parse(respBody).read("ticket.url");
+        String url = JsonPath.from(respBody).getString("ticket.url");
         getClient(url).getAsync();
     }
 
@@ -67,7 +67,7 @@ public class SmokeZenTest {
     public void updateTicket() {
         String respBody = getClient(config.getProperty("url") + "tickets.json")
                 .postAsync(Helper.readFile("ticket.json"));
-        String url = JsonPath.parse(respBody).read("ticket.url");
+        String url = JsonPath.from(respBody).getString("ticket.url");
         getClient(url).getAsync();
         getClient(url).put(Helper.readFile("updated_ticket.json"));
         getClient(url).delete();
@@ -77,7 +77,7 @@ public class SmokeZenTest {
     public void deleteTicket() {
         String respBody = getClient(config.getProperty("url") + "tickets.json")
                 .postAsync((Helper.readFile("ticket.json")));
-        String url = JsonPath.parse(respBody).read("ticket.url");
+        String url = JsonPath.from(respBody).getString("ticket.url");
         getClient(url).get();
         getClient(url).delete();
     }
@@ -86,7 +86,7 @@ public class SmokeZenTest {
     @Test
     public void checkTicketsList() {
         String respBody = getClient(config.getProperty("url") + "tickets.json").getAsync();
-        JSONArray tickets = JsonPath.parse(respBody).read("tickets");
+        List<Map> tickets = JsonPath.from(respBody).getList("tickets");
         Assert.assertTrue(tickets.size() > 0);
     }
 
