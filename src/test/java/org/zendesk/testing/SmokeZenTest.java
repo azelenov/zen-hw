@@ -33,7 +33,7 @@ public class SmokeZenTest {
     @BeforeClass
     public static void loadConfig() {
         config = new Properties();
-        InputStream is = Helper.getResourceAsStream("/zendesk-test.properties");
+        InputStream is = Helper.getResourceAsStream("/admin-user.properties");
         try {
             config.load(is);
         } catch (IOException e) {
