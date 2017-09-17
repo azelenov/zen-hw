@@ -1,6 +1,7 @@
 package org.zendesk.testing;
 
 import com.google.common.io.Resources;
+import io.restassured.path.json.JsonPath;
 import org.apache.commons.codec.Charsets;
 
 import java.io.IOException;
@@ -44,5 +45,9 @@ public class Helper {
 
     public static String getProperty(String prop) {
         return getConfig().getProperty(prop);
+    }
+
+    public static String extractJsonValue(String fileName, String jsonPath) {
+        return JsonPath.from(readFile(fileName)).getString(jsonPath);
     }
 }
