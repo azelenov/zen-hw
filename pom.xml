@@ -41,16 +41,16 @@
                             <!-- These are the default values -->
                             <!-- Where to output the generated Junit tests -->
                             <outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
-                            <!-- The diectory containing your feature files.  -->
+                            <!-- The directory containing your feature files.  -->
                             <featuresDirectory>src/test/resources/feature/</featuresDirectory>
                             <!-- Directory where the cucumber report files shall be written  -->
                             <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
                             <!-- comma separated list of output formats -->
-                            <format>html,json</format>
+                            <format>pretty,json</format>
                             <!-- CucumberOptions.strict property -->
                             <strict>true</strict>
                             <!-- CucumberOptions.monochrome property -->
-                            <monochrome>true</monochrome>
+                            <monochrome>false</monochrome>
                             <!-- The tags to run, maps to CucumberOptions.tags property -->
                             <tags>
                                 <tag>@tickets</tag>

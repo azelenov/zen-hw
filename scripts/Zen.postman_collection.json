@@ -24,7 +24,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Basic emVsZW5vdjg3QGdtYWlsLmNvbS90b2tlbjpKQUx1dHVzdWxiU3hNUXNvUXZaaVpPWlRlc2hHeDVBUVBzUm9vdTZM",
+						"value": "Basic ",
 						"description": ""
 					}
 				],
@@ -71,7 +71,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic emVsZW5vdjg3QGdtYWlsLmNvbS90b2tlbjpKQUx1dHVzdWxiU3hNUXNvUXZaaVpPWlRlc2hHeDVBUVBzUm9vdTZM",
+						"value": "Basic ",
 						"description": ""
 					}
 				],
@@ -100,7 +100,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Basic YWdlbnRAemVuZGVzay5jb206dG9rZW46SkFMdXR1c3VsYlN4TVFzb1F2WmlaT1pUZXNoR3g1QVFQc1Jvb3U2TA==",
+						"value": "Basic ==",
 						"description": ""
 					}
 				],
@@ -117,7 +117,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Basic emVsZW5vdjg3QGdtYWlsLmNvbS90b2tlbjpKQUx1dHVzdWxiU3hNUXNvUXZaaVpPWlRlc2hHeDVBUVBzUm9vdTZM",
+						"value": "Basic ",
 						"description": "",
 						"disabled": true
 					}
@@ -144,7 +144,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Basic emVsZW5vdjg3QGdtYWlsLmNvbS90b2tlbjpKQUx1dHVzdWxiU3hNUXNvUXZaaVpPWlRlc2hHeDVBUVBzUm9vdTZM",
+						"value": "Basic ",
 						"description": ""
 					}
 				],

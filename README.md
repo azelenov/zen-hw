@@ -1,15 +1,15 @@
 This is an example of BDD tests for Zendesk tickets API
 ==============================
 
-##Configuration
+## Configuration
 For running tests please create admin.properties file in /src/test/resources/user/
 
 Example can be found in example.properties.
 
-Run script/smoke.sh to verify that configuration is correct
+Run script/smoke.sh to verify that configuration is correct.
 
 
-##Framework used:
+## Framework used:
  *  *Cucumber* for behavior-driven tests
 https://cukes.info/step-definitions.html
 
@@ -17,20 +17,20 @@ https://cukes.info/step-definitions.html
 https://code.google.com/p/rest-assured/wiki/Usage
 
 
-##How to run 
+## How to run 
 
-#Test runner
+# Test runner
 1. Run a file /src/test/java/org/zendesk/testing/TestRunner.java
 
-#Intellij Idea
+# Intellij Idea
 1. Open any feature file in  test/resources/feature
 2. Do right-click on the scenario and select option 'Run scenario'
 
-#Maven
+# Maven
 Run 'mvn clean install' from project root
 
 
-##Report
+## Report
 For viewing report run:
 scripts/report.sh
 

@@ -13,7 +13,7 @@ import java.util.Properties;
 /**
  * Utility class
  */
-public class Helper {
+class Helper {
     private static Properties config = null;
     private static String configFile;
 
@@ -31,7 +31,7 @@ public class Helper {
     }
 
 
-    public static Properties readConfigFile(String path) {
+    private static Properties readConfigFile(String path) {
         if (path != null && !path.isEmpty()) {
             config = new Properties();
             InputStream is = Helper.getResourceAsStream("/user/" + path);

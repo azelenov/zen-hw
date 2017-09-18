@@ -20,7 +20,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
  * Steps related to tickets
  */
 public class TicketSteps {
-    Logger LOGGER = LoggerFactory.getLogger(TicketSteps.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(TicketSteps.class.getName());
 
     private String ticketUrl;
     private int ticketId;
