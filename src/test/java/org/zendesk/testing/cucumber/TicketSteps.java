@@ -1,4 +1,4 @@
-package org.zendesk.testing;
+package org.zendesk.testing.cucumber;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -59,7 +59,7 @@ public class TicketSteps {
 
     @Then("^I see my comment on the ticket$")
     public void iSeeMyCommentOnTheTicket() throws Throwable {
-        String url = String.format("%stickets/%s/comments.json", Helper.getConfig().getProperty("url"), ticketId);
+        String url = String.format("%stickets/%s/comments.json", Helper.getZenUrl(), ticketId);
         List<String> comments = when().get(url)
                 .then().statusCode(200)
                 .extract().body().jsonPath().getList("comments.plain_body");
@@ -74,7 +74,7 @@ public class TicketSteps {
 
     @And("^I can see the ticket among others$")
     public void iCanSeeTheTicketAmongOthers() throws Throwable {
-        String url = String.format("%stickets", Helper.getConfig().getProperty("url"));
+        String url = String.format("%stickets", Helper.getZenUrl());
         JsonPath ticketsResp = when().get(url).then().statusCode(200).extract().jsonPath();
         Assert.assertTrue("Checking that tickets show recently created ticket id",
                 ticketsResp.getList("tickets.id").contains(253));

@@ -1,10 +1,11 @@
-package org.zendesk.testing;
+package org.zendesk.testing.junit;
 
 import io.restassured.path.json.JsonPath;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.zendesk.testing.cucumber.Helper;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,13 +28,12 @@ import static org.junit.Assume.assumeThat;
 @Ignore
 public class SmokeZenTest {
 
-    private ZendeskClient instance;
     static Properties config;
 
     @BeforeClass
     public static void loadConfig() {
         config = new Properties();
-        InputStream is = Helper.getResourceAsStream("/admin-user.properties");
+        InputStream is = Helper.getResourceAsStream("/user/admin.properties");
         try {
             config.load(is);
         } catch (IOException e) {
@@ -41,42 +41,48 @@ public class SmokeZenTest {
         }
         assumeThat("No username found!", config.getProperty("username"), notNullValue());
         assumeThat("No token found!", config.getProperty("token"), notNullValue());
-        assumeThat("No URL found!", config.getProperty("url"), notNullValue());
+        assumeThat("No URL found!", config.getProperty("org"), notNullValue());
     }
+    
+    
 
 
     private ZendeskClient getClient(String path) {
         return new ZendeskClient(path, config.getProperty("username"), config.getProperty("token"));
     }
+    
+    public String getUrl() {
+        return String.format("https://%s.zendesk.com/api/v2/", config.getProperty("org"));
+    }
 
     @Test
     public void authenticate() {
-        getClient(config.getProperty("url") + "users/me.json").getAsync();
+        getClient(getUrl() + "users/me.json").getAsync();
     }
 
 
     @Test
     public void createTicket() {
-        String respBody = getClient(config.getProperty("url") + "tickets.json")
-                .postAsync((Helper.readFile("ticket.json")));
+        String respBody = getClient(getUrl() + "tickets.json")
+                .postAsync((Helper.readFile("sample/ticket.json")));
         String url = JsonPath.from(respBody).getString("ticket.url");
         getClient(url).getAsync();
     }
 
     @Test
     public void updateTicket() {
-        String respBody = getClient(config.getProperty("url") + "tickets.json")
-                .postAsync(Helper.readFile("ticket.json"));
+        String respBody = getClient(getUrl() + "tickets.json")
+                .postAsync(Helper.readFile("sample/ticket.json"));
         String url = JsonPath.from(respBody).getString("ticket.url");
         getClient(url).getAsync();
-        getClient(url).put(Helper.readFile("updated_ticket.json"));
+        getClient(url).put(Helper.readFile("sample/updated_ticket.json"));
         getClient(url).delete();
     }
 
     @Test
     public void deleteTicket() {
-        String respBody = getClient(config.getProperty("url") + "tickets.json")
-                .postAsync((Helper.readFile("ticket.json")));
+        String respBody = getClient(getUrl() + "tickets.json")
+                .postAsync((Helper.readFile("sample/ticket.json")));
         String url = JsonPath.from(respBody).getString("ticket.url");
         getClient(url).get();
         getClient(url).delete();
@@ -85,7 +91,7 @@ public class SmokeZenTest {
 
     @Test
     public void checkTicketsList() {
-        String respBody = getClient(config.getProperty("url") + "tickets.json").getAsync();
+        String respBody = getClient(getUrl() + "tickets.json").getAsync();
         List<Map> tickets = JsonPath.from(respBody).getList("tickets");
         Assert.assertTrue(tickets.size() > 0);
     }

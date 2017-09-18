@@ -1,4 +1,4 @@
-package org.zendesk.testing;
+package org.zendesk.testing.cucumber;
 
 import com.comcast.zucchini.AbstractZucchiniTest;
 import com.comcast.zucchini.TestContext;
@@ -13,7 +13,7 @@ import java.util.List;
  */
 @CucumberOptions(
         features = { "src/test/resources/feature" },
-        glue = { "org.zendesk.testing" }
+        glue = { "org.zendesk.testing.cucumber" }
 )
 public class TestRunner extends AbstractZucchiniTest {
     @Override

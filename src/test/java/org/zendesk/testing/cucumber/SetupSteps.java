@@ -1,4 +1,4 @@
-package org.zendesk.testing;
+package org.zendesk.testing.cucumber;
 
 import cucumber.api.java.en.Given;
 import io.restassured.RestAssured;
@@ -22,11 +22,10 @@ public class SetupSteps {
         Properties props = Helper.getConfig();
         RestAssured.authentication = basic(props.getProperty("username") + "/token",
                 props.getProperty("token"));
-        RestAssured.baseURI = props.getProperty("url");
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .setAccept(ContentType.JSON)
                 .setContentType(ContentType.JSON)
-                .setBaseUri(props.getProperty("url"))
+                .setBaseUri(Helper.getZenUrl())
                 .log(LogDetail.ALL)
                 .build();
         RestAssured.defaultParser = Parser.JSON;
@@ -35,7 +34,7 @@ public class SetupSteps {
 
     @Given("^I'm (.*) user$")
     public void setUser(String user) throws Throwable {
-        String userConfigFile = user + "-user.properties";
+        String userConfigFile = user + ".properties";
         Helper.setConfigFile(userConfigFile);
     }
 

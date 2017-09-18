@@ -1,4 +1,4 @@
-package org.zendesk.testing;
+package org.zendesk.testing.cucumber;
 
 import com.google.common.io.Resources;
 import io.restassured.path.json.JsonPath;
@@ -52,6 +52,10 @@ public class Helper {
             config = readConfigFile(configFile);
         }
         return config;
+    }
+
+    public static String getZenUrl() {
+        return String.format("https://%s.zendesk.com/api/v2/", getConfig().getProperty("org"));
     }
 
 

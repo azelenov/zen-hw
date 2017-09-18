@@ -1,4 +1,4 @@
-package org.zendesk.testing;
+package org.zendesk.testing.junit;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -19,28 +19,17 @@ public class ZendeskClient extends Thread  {
 
     private String token;
     private String url;
-    private String username;
     private String principal;
 
 
 
     public ZendeskClient(String url, String username, String token) {
         this.url = url;
-        this.username = username;
         this.principal = username + "/token";
         this.token = token;
         Unirest.setDefaultHeader("Accept", "application/json");
         Unirest.setDefaultHeader("Content-Type", "application/json");
         Unirest.setConcurrency(2, 2);
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public ZendeskClient setBasePath(String path) {
-        this.url = url + path;
-        return this;
     }
 
     public String getAsync() {
