@@ -44,8 +44,6 @@ public class SmokeZenTest {
         assumeThat("No URL found!", config.getProperty("org"), notNullValue());
     }
     
-    
-
 
     private ZendeskClient getClient(String path) {
         return new ZendeskClient(path, config.getProperty("username"), config.getProperty("token"));

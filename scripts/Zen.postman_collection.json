@@ -13,8 +13,8 @@
 				"auth": {
 					"type": "basic",
 					"basic": {
-						"username": "zelenov87@gmail.com/token",
-						"password": "JALutusulbSxMQsoQvZiZOZTeshGx5AQPsRoou6L",
+						"username": "",
+						"password": "",
 						"saveHelperData": true,
 						"showPassword": false
 					}
@@ -50,8 +50,8 @@
 				"auth": {
 					"type": "basic",
 					"basic": {
-						"username": "zelenov87@gmail.com/token",
-						"password": "JALutusulbSxMQsoQvZiZOZTeshGx5AQPsRoou6L",
+						"username": "",
+						"password": "",
 						"saveHelperData": true,
 						"showPassword": false
 					}
@@ -90,7 +90,7 @@
 					"type": "basic",
 					"basic": {
 						"username": "agent@zendesk.com",
-						"password": "token:JALutusulbSxMQsoQvZiZOZTeshGx5AQPsRoou6L",
+						"password": "token:",
 						"saveHelperData": true,
 						"showPassword": false
 					}
@@ -133,8 +133,8 @@
 				"auth": {
 					"type": "basic",
 					"basic": {
-						"username": "zelenov87@gmail.com/token",
-						"password": "JALutusulbSxMQsoQvZiZOZTeshGx5AQPsRoou6L",
+						"username": "",
+						"password": "",
 						"saveHelperData": true,
 						"showPassword": false
 					}

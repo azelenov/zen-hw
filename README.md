@@ -2,16 +2,15 @@ This is a example of BDD tests for Zendesk tickets API
 ==============================
 
 ##Configuration
-For running tests please create admin.properties file in /src/test/resources/user/admin.properties
+For running tests please create admin.properties file in /src/test/resources/user/
 
-Description of all parameters can be found in example.properties.
+Example can be found in example.properties.
+
+Run script/smoke.sh to verify that configuration is correct
 
 
 ##Framework used:
- *  *Cucumber* for behavior-driven test
-https://cukes.info/step-definitions.html
-
- *  *Zucchini* for specifications
+ *  *Cucumber & Zucchini* for behavior-driven test
 https://cukes.info/step-definitions.html
 
  * *rest-assured* for handling requests.
