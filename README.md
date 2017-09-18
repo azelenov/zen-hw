@@ -1,4 +1,4 @@
-This is a example of BDD tests for Zendesk tickets API
+This is an example of BDD tests for Zendesk tickets API
 ==============================
 
 ##Configuration
@@ -10,7 +10,7 @@ Run script/smoke.sh to verify that configuration is correct
 
 
 ##Framework used:
- *  *Cucumber & Zucchini* for behavior-driven test
+ *  *Cucumber* for behavior-driven tests
 https://cukes.info/step-definitions.html
 
  * *rest-assured* for handling requests.
@@ -31,5 +31,8 @@ Run 'mvn clean install' from project root
 
 
 ##Report
-HTML report will be generated here:
-**//target/zucchini-reports/feature-overview.html**
+For viewing report run:
+scripts/report.sh
+
+or open it from here:
+**/cucumber-reports/cucumber-html-reports/overview-features.html **

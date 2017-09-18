@@ -1,4 +1,5 @@
 # Created by azelenov at 9/16/17
+@tickets
 Feature: Verifying ticket API endpoints for admin user
   Requirements:
   1. Verify you are able to create a ticket
